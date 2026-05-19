@@ -3,7 +3,7 @@ package model.entity;
 public class Aluno {
 
     private int id;
-    private int idPlus = 1;
+    private static int idPlus = 1;
     private String nome;
     private String matricula;
 
