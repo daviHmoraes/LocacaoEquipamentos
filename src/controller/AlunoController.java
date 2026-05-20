@@ -38,7 +38,7 @@ public class AlunoController {
             if (aluno != null) {
                 System.out.println(aluno);
             } else {
-                System.out.println("ERRO: Aluno não encontrado.");
+                System.out.println("ERRO: Aluno não encontrado");
             }
 
         } catch (IllegalArgumentException e) {

@@ -39,7 +39,7 @@ public class Aluno {
 
     @Override
     public String toString(){
-        return "\nInforamações do aluno: \nID: " + id + "\nNome: " + "\nMatrícula" + matricula;
+        return "\nInformações do aluno: \nID: " + id + "\nNome: " + "\nMatrícula: " + matricula;
     }
 
 }
