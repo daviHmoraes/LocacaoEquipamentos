@@ -4,15 +4,15 @@ public class Equipamento {
 
 
     private int idContador = 1;
-    private int id ;
+    private int id;
     private String nome;
     private String tipo;
     private boolean disponivel;
 
 
-    public Equipamento( String nome, String tipo, boolean disponivel){
+    public Equipamento(String nome, String tipo, boolean disponivel) {
 
-        this.id = idContador ++;
+        this.id = idContador++;
         this.nome = nome;
         this.tipo = tipo;
         this.disponivel = disponivel;
@@ -51,7 +51,7 @@ public class Equipamento {
         this.disponivel = disponivel;
     }
 
-    public void exibirDados(){
+    public void exibirDados() {
 
         System.out.println("ID: " + id);
         System.out.println("Nome " + nome);
