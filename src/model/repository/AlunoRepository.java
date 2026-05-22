@@ -1,8 +1,11 @@
 package model.repository;
 
 import model.entity.Aluno;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.List;
 
 public class AlunoRepository {
 
@@ -16,16 +19,8 @@ public class AlunoRepository {
         return listaAlunos.get(id);
     }
 
-    public void atualizar(Aluno aluno){
-        listaAlunos.put(aluno.getId(), aluno);
-    }
-
-    public void deletar(int id){
-        listaAlunos.remove(id);
-    }
-
-    public HashMap<Integer, Aluno> listar() {
-        return listaAlunos;
+    public List<Aluno> listar() {
+        return new ArrayList<>(listaAlunos.values());
     }
 
 }
