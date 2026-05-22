@@ -2,20 +2,18 @@ package model.entity;
 
 public class Equipamento {
 
-
-    private int idContador = 1;
+    private static int idContador = 1;
     private int id;
     private String nome;
     private String tipo;
     private boolean disponivel;
 
-
-    public Equipamento(String nome, String tipo, boolean disponivel) {
+    public Equipamento(String nome, String tipo) {
 
         this.id = idContador++;
-        this.nome = nome;
-        this.tipo = tipo;
-        this.disponivel = disponivel;
+        setNome(nome);
+        setTipo(tipo);
+        this.disponivel = true;
 
     }
 
@@ -32,6 +30,9 @@ public class Equipamento {
     }
 
     public void setNome(String nome) {
+        if (nome == null || nome.isBlank()) {
+            throw new RuntimeException("ERRO: nome não pode ser vazio");
+        }
         this.nome = nome;
     }
 
@@ -40,22 +41,23 @@ public class Equipamento {
     }
 
     public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
+        if (tipo == null || tipo.isBlank()) {
+            throw new RuntimeException("ERRO: tipo não pode ser vazio");
+        }
+            this.tipo = tipo;
+        }
+
 
     public boolean isDisponivel() {
         return disponivel;
     }
 
-    public void setDisponivel(boolean disponivel) {
+    public void setDisponivel(Boolean disponivel) {
+
+        if (disponivel == null) {
+            throw new RuntimeException("ERRO: não pode ser nulo.");
+        }
         this.disponivel = disponivel;
-    }
 
-    public void exibirDados() {
-
-        System.out.println("ID: " + id);
-        System.out.println("Nome " + nome);
-        System.out.println("Tipo: " + tipo);
-        System.out.println("Status " + disponivel);
     }
 }
