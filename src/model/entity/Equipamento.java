@@ -3,26 +3,22 @@ package model.entity;
 public class Equipamento {
 
     private static int idContador = 1;
-    private int id;
+    private final int id;
     private String nome;
     private String tipo;
     private boolean disponivel;
 
     public Equipamento(String nome, String tipo) {
 
-        this.id = idContador++;
         setNome(nome);
         setTipo(tipo);
         this.disponivel = true;
+        this.id = idContador++;
 
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -46,7 +42,6 @@ public class Equipamento {
         }
             this.tipo = tipo;
         }
-
 
     public boolean isDisponivel() {
         return disponivel;

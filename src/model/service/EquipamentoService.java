@@ -4,6 +4,7 @@ import model.entity.Equipamento;
 import model.repository.EquipamentoRepository;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class EquipamentoService {
 
@@ -13,33 +14,23 @@ public class EquipamentoService {
         this.equipamentoRepository = equipamentoRepository;
     }
 
-    public void cadastrar(Equipamento equipamento) {
+    public void salvar(Equipamento equipamento) {
         equipamentoRepository.salvar(equipamento);
     }
 
     public Equipamento buscarPorId(int id) {
+        Equipamento equipamento = equipamentoRepository.buscarID(id);
+        if (equipamento == null) {
+            throw new RuntimeException("ERRO: Equipamento não encontrado");
+        }
         return equipamentoRepository.buscarID(id);
     }
 
-    public void atualizar(Equipamento equipamento) {
-
-        if (equipamentoRepository.buscarID(equipamento.getId()) == null) {
-            throw new RuntimeException("ERRO: ID não encontrado.");
+    public List<Equipamento> listar() {
+        List<Equipamento> list = equipamentoRepository.listarEquipamento();
+        if (list.isEmpty()) {
+            throw new RuntimeException("ERRO: A lista está vazia.");
         }
-
-        equipamentoRepository.atualizar(equipamento);
-    }
-
-    public void deletar(int id) {
-
-        if (equipamentoRepository.buscarID(id) == null) {
-            throw new RuntimeException("ERRO: ID não encontrado.");
-        }
-
-        equipamentoRepository.removerEquipamento(id);
-    }
-
-    public HashMap<Integer, Equipamento> listar() {
         return equipamentoRepository.listarEquipamento();
     }
 }
