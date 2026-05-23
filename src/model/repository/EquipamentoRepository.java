@@ -2,7 +2,9 @@ package model.repository;
 
 import model.entity.Equipamento;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class EquipamentoRepository {
 
@@ -17,8 +19,8 @@ public class EquipamentoRepository {
         equipamentoHashMap.put(equipamento.getId(), equipamento);
     }
     //listar
-    public HashMap<Integer, Equipamento> listarEquipamento() {
-        return equipamentoHashMap;
+    public List<Equipamento> listarEquipamento() {
+        return new ArrayList<>(equipamentoHashMap.values());
     }
     //remover
     public void removerEquipamento(int id) {
