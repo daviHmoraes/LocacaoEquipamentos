@@ -19,18 +19,28 @@ public class EquipamentoService {
     }
 
     public Equipamento buscarPorId(int id) {
-        Equipamento equipamento = equipamentoRepository.buscarID(id);
-        if (equipamento == null) {
-            throw new RuntimeException("ERRO: Equipamento não encontrado");
-        }
         return equipamentoRepository.buscarID(id);
     }
 
-    public List<Equipamento> listar() {
-        List<Equipamento> list = equipamentoRepository.listarEquipamento();
-        if (list.isEmpty()) {
-            throw new RuntimeException("ERRO: A lista está vazia.");
+    public void atualizar(Equipamento equipamento) {
+
+        if (equipamentoRepository.buscarID(equipamento.getId()) == null) {
+            throw new RuntimeException("ERRO: ID não encontrado.");
         }
+
+        equipamentoRepository.atualizar(equipamento);
+    }
+
+    public void deletar(int id) {
+
+        if (equipamentoRepository.buscarID(id) == null) {
+            throw new RuntimeException("ERRO: ID não encontrado.");
+        }
+
+        equipamentoRepository.removerEquipamento(id);
+    }
+
+    public List<Equipamento> listar() {
         return equipamentoRepository.listarEquipamento();
     }
 }
